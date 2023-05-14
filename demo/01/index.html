@@ -17,13 +17,15 @@
 </head>
 
 <body>
-    <audio autoplay>
+    <audio id="player" autoplay>
         <source src="music/Lieu-anh-co-the-yeu-em-Khac-Viet.mp3" type="audio/mp3" />
     </audio>
     <div id="main">
-        <div id="error">Trang này được chỉnh sửa bằng HTML5, hiện tại trình duyệt của bạn không thể hiển thị, vui lòng chuyển sang Google(<a
-                href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>) hoặc Firefox(<a
-                href="http://firefox.com.cn/download/">Firefox</a>) hoặc phiên bản mới nhất của trình duyệt khác。</div>
+        <div id="error">Trang này được chỉnh sửa bằng HTML5, hiện tại trình duyệt của bạn không thể hiển thị, vui lòng
+            chuyển sang Google(<a
+                href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>) hoặc
+            Firefox(<a href="http://firefox.com.cn/download/">Firefox</a>) hoặc phiên bản mới nhất của trình duyệt khác。
+        </div>
         <div id="wrap">
             <div id="text">
                 <div id="code">
@@ -42,17 +44,29 @@
                         <span class="say"> </span><br>
                         <span class="say">Và chắc chắn là em cũng thích đồ ngọt</span><br>
                         <span class="say"> </span><br>
-                        <span class="say">在IE 11 上请允许拦截的内容</span><br>
+                        <span class="say">Còn anh biết chỗ ăn ngon</span><br>
                         <span class="say"> </span><br>
-                        <span class="say">这里可以自定义更换文字说明</span><br>
+                        <span class="say">Vì anh ngốc nghếch không biết làm gì</span><br>
                         <span class="say"> </span><br>
-                        <span class="say"> -- 爱你的午夜阳光--</span>
+                        <span class="say">Để em hiểu được những điều anh suy nghĩ</span>
+                        <span class="say"> </span><br>
+                        <span class="say">Vì em vô tư cũng rất hiếu kỳ</span>
+                        <span class="say"> </span><br>
+                        <span class="say">Sợ em sẽ quên anh đi</span>
+                        <span class="say"> </span><br>
+                        <span class="say">Và tình yêu cứ thế không nói thành lời</span>
+                        <span class="say"> </span><br>
+                        <span class="say">Để cho từng ngày càng thêm bối rối</span>
+                        <span class="say"> </span><br>
+                        <span class="say">Làm sao cho con tim anh ngỏ lời</span>
+                        <span class="say"> </span><br>
+                        <span class="say">Liệu anh có thể yêu em</span>
                     </font>
                 </div>
             </div>
             <div id="clock-box">
                 <span>
-                    <font color="#666666">Em ơi, mình quen nhau đã lâu</font>
+                    <font color="#666666">Em ơi, mình quen nhau đã</font>
                 </span>
                 <div id="clock"></div>
             </div>
@@ -62,6 +76,8 @@
     <script>
         (function () {
             var canvas = $('#canvas');
+            var player = $('#player');
+            player[0].pause();
 
             if (!canvas[0].getContext) {
                 $("#error").show();
@@ -116,6 +132,7 @@
             var hold = 1;
 
             canvas.click(function (e) {
+                player[0].play();
                 var offset = canvas.offset(), x, y;
                 x = e.pageX - offset.left;
                 y = e.pageY - offset.top;
@@ -190,11 +207,11 @@
 
             var textAnimate = eval(Jscex.compile("async", function () {
                 var together = new Date();
-                together.setFullYear(2023, 1, 12); 			
-                together.setHours(19);						
-                together.setMinutes(00);					
-                together.setSeconds(0);						
-                together.setMilliseconds(00);				
+                together.setFullYear(2023, 1, 12);
+                together.setHours(19);
+                together.setMinutes(00);
+                together.setSeconds(0);
+                together.setMilliseconds(00);
 
                 $("#code").show().typewriter();
                 $("#clock-box").fadeIn(500);

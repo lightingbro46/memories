@@ -16,7 +16,11 @@ $(window).resize(function () {
 });
 
 (function ($) {
-	$.fn.typewriter = function () {
+	$.fn.typewriter = function (options) {
+		var settings = $.extend({
+			delay_break: []
+		}, options);
+
 		this.each(function () {
 			var $ele = $(this), str = $ele.html(), progress = 0;
 			$ele.html('');
@@ -25,14 +29,18 @@ $(window).resize(function () {
 				if (current == '<') {
 					progress = str.indexOf('>', progress) + 1;
 				} else {
-					progress++;
+					progress++;.
 				}
-				$ele.html(str.substring(0, progress) + (progress & 1 ? '_' : ''));
-				console.log($ele.html());
+				var substr = str.substring(0, progress);
+				console.log(substr);
+				console.log("slice", str.slice(- 5));
+				console.log(substr.endsWith('<br>'));
+
+				$ele.html(substr + (progress & 1 ? '_' : ''));
 				if (progress >= str.length) {
 					clearInterval(timer);
 				}
-			}, 50);
+			}, 60);
 		});
 		return this;
 	};
@@ -61,10 +69,10 @@ function timeElapse(date) {
 }
 
 function lyricsElapse(time) {
-	// console.log(time);
+	console.log(time);
 	if (time > 14 && time < 49) {
 		if (!$("#code-1").is(':visible')) {
-			console.log("show code-1")
+			console.log("show code-1");
 			$("#code-1").show().typewriter();
 		}
 	}

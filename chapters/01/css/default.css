@@ -14,7 +14,7 @@ a {
 	left: 60px; top: 80px; width: 400px; height: 425px; position: absolute;
 }
 #code-1, #code-2, #code-3, #code-4 {
-	font-size: 16px; display: none; margin-top: 10px;
+	font-size: 18px; display: none; margin-top: 10px; color: rgb(255, 0, 0)
 }
 
 #clock-box {
